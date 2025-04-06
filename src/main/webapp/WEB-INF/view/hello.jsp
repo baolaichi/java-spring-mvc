@@ -7,11 +7,30 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>LSB-163</title>
+            <!-- Latest compiled and minified CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+            <!-- Latest compiled JavaScript -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+            <link href="/css/demo.css" rel="stylesheet" />
+
         </head>
 
         <body>
             <h1>${message}</h1>
-            <h2>${title}</h2>
+            <h2>${title}</h2><br />
+            <h3>${name}</h3><br />
+            <button> no</button>
+            <p>
+                Today's date: <%= (new java.util.Date()).toLocaleString()%>
+            </p>
+            <a href="https://google.com">Đi tới Google</a>
+            <div>
+                <button class="btn btn-success"> submit</button>
+            </div>
         </body>
 
         </html>
