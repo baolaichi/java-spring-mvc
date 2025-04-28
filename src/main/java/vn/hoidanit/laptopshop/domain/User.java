@@ -1,11 +1,18 @@
 package vn.hoidanit.laptopshop.domain;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -16,6 +23,34 @@ public class User {
     private String fullName;
     private String address;
     private String phone;
+    private String avatar;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    public List<Order> getOrder() {
+        return order;
+    }
+    public void setOrder(List<Order> order) {
+        this.order = order;
+    }
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> order;
+    
+    public String getAvatar() {
+        return avatar;
+    }
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+    public Role getRole() {
+        return role;
+    }
+    public void setRole(Role role) {
+        this.role = role;
+    }
     public Long getId() {
         return id;
     }
