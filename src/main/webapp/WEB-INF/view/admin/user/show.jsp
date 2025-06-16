@@ -40,6 +40,7 @@
                                             <tr class="table-success">
                                                 <th>id</th>
                                                 <th>fullName</th>
+                                                <th>role</th>
                                                 <th>action</th>
                                             </tr>
                                         </thead>
@@ -48,6 +49,7 @@
                                                 <tr>
                                                     <td>${user.id}</td>
                                                     <td>${user.fullName}</td>
+                                                    <td>${user.role.name}</td>
                                                     <td><a href="/admin/user/view/${user.id}" class="btn btn-success">View</a>
                                                         <a href="/admin/user/delete/${user.id}" class="btn btn-danger">Delete</a>
                                                         <a href="/admin/user/update/${user.id}" class="btn btn-warning">update</a>

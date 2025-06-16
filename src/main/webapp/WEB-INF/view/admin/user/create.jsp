@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
             <html lang="en">
@@ -49,20 +50,36 @@
                                         enctype="multipart/form-data">
 
                                             <div class="mb-3 col-12 col-md-6">
-                                                <label for="exampleInputEmail1" class="form-label">Email address:</label>
-                                                <form:input path="email" type="email" class="form-control" />
+                                                <c:set var="errorEmail">
+                                                <form:errors path="email" cssClass="invalid-feedback" />
+                                                </c:set>
+
+                                                <label for="email" class="form-label">Email address:</label>
+                                                <form:input type="email" 
+                                                class="form-control ${not empty errorEmail ? 'is-invalid' : ''}" path="email" />
+                                                ${errorEmail}
                                             </div>
+
                                             <div class="mb-3 col-12 col-md-6">
-                                                <label for="exampleInputPassword1" class="form-label">Password:</label>
-                                                <form:input path="password" type="password" class="form-control" />
+                                                <c:set var="errorPassword">
+                                                    <form:errors path="password" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <label for="password" class="form-label">Password:</label>
+                                                <form:input type="password"
+                                                 class="form-control ${not empty errorPassword ? 'is-invalid' : ''}" path="password" />
+                                                 ${errorPassword}
                                             </div>
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label for="examplePhone1" class="form-label">Phone number: </label>
                                                 <form:input path="phone" type="text" class="form-control" />
                                             </div>
                                             <div class="mb-3 col-12 col-md-6">
-                                                <label for="exampleFullName1" class="form-label">Full name: </label>
-                                                <form:input path="fullName" type="text" class="form-control" />
+                                                <c:set var = "errorFullName">
+                                                    <form:errors path="fullName" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <label for="fullName" class="form-label">Full name: </label>
+                                                <form:input path="fullName" type="text" class="form-control ${not empty errorFullName ? 'is-invalid' : ''}" />
+                                                ${errorFullName}
                                             </div>
                                             <div class="mb-3 col-12 col-md-12">
                                                 <label for="exampleAddress1" class="form-label">Address: </label>
@@ -96,7 +113,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="/js/scripts.js"></script>
             </body>
 
             </html>

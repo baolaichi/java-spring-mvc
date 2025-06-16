@@ -48,6 +48,13 @@
                                             <label for="exampleFullName1" class="form-label">Full name: </label>
                                             <form:input path="fullName" type="text" class="form-control" />
                                         </div>
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label">Role:</label>
+                                            <form:select class="form-select" path="role.name">
+                                                <form:option value="ADMIN">ADMIN</form:option>
+                                                <form:option value="USER">USER</form:option>
+                                            </form:select>
+                                        </div>
                                         <div class="mb-3">
                                             <label for="exampleAddress1" class="form-label">Address: </label>
                                             <form:input path="address" type="text" class="form-control" />
